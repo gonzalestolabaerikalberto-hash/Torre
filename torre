@@ -1,0 +1,15 @@
+class Torre
+{
+	public:
+		short fila;
+		short columna;
+		Torre(short f, short c, bool color)
+		{
+			fila = f;
+			columna = c;
+			isBlack = color;
+		}
+	private:
+		bool isBlack;
+};
+
