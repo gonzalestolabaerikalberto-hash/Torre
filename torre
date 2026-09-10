@@ -1,3 +1,6 @@
+#ifndef TORRE_H
+#define TORRE_H
+
 class Torre
 {
 	public:
@@ -12,4 +15,45 @@ class Torre
 	private:
 		bool isBlack;
 };
+
+// Getter para el color (isBlack es privado)
+		bool getIsBlack()
+		{
+			return isBlack;
+		}
+ 
+		// Setter para el color
+		void setIsBlack(bool color)
+		{
+			isBlack = color;
+		}
+ 
+		// Valida si el movimiento es correcto para una Torre:
+		// debe mantenerse en la misma fila o en la misma columna
+		bool esMovimientoValido(short nuevaFila, short nuevaColumna)
+		{
+			if (nuevaFila == fila && nuevaColumna == columna)
+				return false; // no se movio
+ 
+			return (nuevaFila == fila || nuevaColumna == columna);
+		}
+ 
+		// Mueve la torre si el movimiento es valido
+		bool mover(short nuevaFila, short nuevaColumna)
+		{
+			if (esMovimientoValido(nuevaFila, nuevaColumna))
+			{
+				fila = nuevaFila;
+				columna = nuevaColumna;
+				return true;
+			}
+			return false;
+		}
+ 
+	private:
+		bool isBlack;
+};
+ 
+#endif
+
 
